@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--the root view must be the DrawerLayout-->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controllers.MainActivity"
+    tools:ignore="HardcodedText">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+
+        <LinearLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/copper"
+            android:alpha="0.8"
+            >
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/return_b"
+                android:layout_gravity="center"
+                android:background="@color/ap_transparent"
+                />
+
+            <TextView
+                android:layout_marginStart="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="left|center"
+                android:text="IMKB Hisse ve Endeksler"
+                android:paddingStart="8dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:autofillHints="Ara"
+            />
+
+        <LinearLayout
+            android:id = "@+id/linearLayout"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background = "@color/gray"
+            >
+
+            <TextView
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_weight = "1"
+                android:gravity = "center"
+                android:padding = "5dp"
+                android:textSize="12sp"
+                android:text = "Sembol"
+                android:textColor = "#ffffff" />
+
+            <TextView
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_weight = "1"
+                android:gravity = "center"
+                android:padding = "5dp"
+                android:textSize="12sp"
+                android:text = "Fiyat"
+                android:textColor = "#ffffff" />
+
+            <TextView
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_weight = "1"
+                android:gravity = "center"
+                android:padding = "5dp"
+                android:textSize="12sp"
+                android:text = "Fark"
+                android:textColor = "#ffffff" />
+
+            <TextView
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_weight = "1"
+                android:gravity = "center"
+                android:padding = "5dp"
+                android:textSize="12sp"
+                android:text = "Hacim"
+                android:textColor = "#ffffff" />
+
+            <TextView
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_weight = "1"
+                android:gravity = "center"
+                android:padding = "5dp"
+                android:textSize="12sp"
+                android:text = "Alış"
+                android:textColor = "#ffffff"/>
+
+            <TextView
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_weight = "1"
+                android:gravity = "center"
+                android:padding = "5dp"
+                android:textSize="12sp"
+                android:text = "Satış"
+                android:textColor = "#ffffff" />
+
+            <TextView
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_weight = "1"
+                android:gravity = "center"
+                android:padding = "5dp"
+                android:textSize="12sp"
+                android:text = "Değişim"
+                android:textColor = "#ffffff" />
+        </LinearLayout>
+
+        <ListView
+            android:id = "@+id/listview"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:divider="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:layout_marginBottom="10dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

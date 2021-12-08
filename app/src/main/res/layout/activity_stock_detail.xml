@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controllers.StockDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/copper"
+        android:alpha="0.8"
+        >
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/return_b"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_marginStart="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="left|center"
+            android:text="IMKB Hisse ve Endeksler"
+            android:paddingStart="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        >
+
+        <LinearLayout
+            android:padding="12dp"
+            android:id="@+id/leftLayout"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:layout_marginLeft="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sembol : HALKB"
+                />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fiyat : 2.45"
+                />
+
+            <TextView
+                android:id="@+id/difference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%Fark: 0.02"
+                />
+
+            <TextView
+                android:id="@+id/volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hacim : 580"
+                />
+
+            <TextView
+                android:id="@+id/buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alış : 0.51"
+                />
+
+            <TextView
+                android:id="@+id/sell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Satış : 0.51"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="12dp"
+            android:id="@+id/rightLayout"
+            android:layout_marginRight="4dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/lowest"
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Günlük Düşük : 2.777"
+                />
+
+            <TextView
+                android:id="@+id/highest"
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Günlük Yüksek : 222.777"
+                />
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adet : 224"
+                />
+
+            <TextView
+                android:id="@+id/peak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Tavan : 580"
+                />
+
+            <TextView
+                android:id="@+id/bottom"
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Taban : 0.0051"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                >
+
+                <TextView
+                    android:id="@+id/change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Değişim :  "
+                    />
+
+                <TextView
+                    android:id="@+id/changeIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintTop_toTopOf="@+id/change"
+                    app:layout_constraintStart_toEndOf="@+id/change"
+                    android:text=""
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <com.androidplot.xy.XYPlot
+        style="@style/APDefacto.Light"
+        android:id="@+id/plot"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
